@@ -110,7 +110,7 @@ public class RadioTest {
     public void shouldTestEnterOverMaxStation() {
         Radio station = new Radio();
 
-        station.setEnter(11);
+        station.setEnter(10);
 
         int expected = 0;
 
