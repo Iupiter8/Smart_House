@@ -170,7 +170,7 @@ public class RadioTest {
     }
 
     @Test
-    public void decreaseVolumeTen() {
+    public void decreaseVolumeMax() {
         Radio volume = new Radio();
 
         volume.setDecreaseVolume(100);
