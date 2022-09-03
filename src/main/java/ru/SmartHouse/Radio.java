@@ -2,19 +2,32 @@ package ru.SmartHouse;
 
 public class Radio {
 
-    public int currentVolume;
+    private int currentVolume;
 
-    public int currentStation;
+    private int currentStation;
+    private int maxCountStation = 0;
+
 
 
     // STATION *****************************************************************
+
+
+    public Radio(int band) {
+        maxCountStation = maxCountStation + band - 1;
+    }
+
+    public Radio() {
+        maxCountStation = 9;
+    }
+
+
 
     public int getCurrentStation() {
         return currentStation;
     }
 
     public void setNext(int newCurrentStation) {
-        if (newCurrentStation < 9) {
+        if (newCurrentStation < maxCountStation) {
             currentStation = newCurrentStation + 1;
             //return; 'return' не нужен, так как последняя инструкция в методе void
         } else {
@@ -40,7 +53,7 @@ public class Radio {
 
     public void setEnter(int newCurrentStation) {
         if (newCurrentStation >= 0) {
-            if (newCurrentStation <= 9) {
+            if (newCurrentStation <= maxCountStation) {
                 currentStation = newCurrentStation;
             }
             //return; 'return' не нужен, так как последняя инструкция в методе void
@@ -56,10 +69,10 @@ public class Radio {
     }
 
     public void setIncreaseVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 10) {
+        if (newCurrentVolume < 100) {
             currentVolume = newCurrentVolume + 1;
         } else {
-            currentVolume = 10;
+            currentVolume = 100;
         }
     }
 
