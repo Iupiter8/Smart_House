@@ -8,6 +8,18 @@ public class RadioTest {
 // STATION TESTS ********************************************
 
     @Test
+    public void shouldBigMaxStation() {
+        Radio station = new Radio(102);
+
+        station.setNext(100);
+
+        Assertions.assertEquals(101, station.getCurrentStation());
+
+
+    }
+
+
+    @Test
     public void shouldTestNextStation() {
         Radio station = new Radio();
 
@@ -21,9 +33,9 @@ public class RadioTest {
 
     @Test
     public void shouldTestNextStationMax() {
-        Radio station = new Radio();
+        Radio station = new Radio(15);
 
-        station.setNext(9);
+        station.setNext(14);
 
         int expected = 0;
 
@@ -96,7 +108,7 @@ public class RadioTest {
     @Test
     public void shouldTestEnterUnderMinStation() {
         Radio station = new Radio();
-
+// Радио на котором можно ввести отрицательный номер станции :)
         station.setEnter(-1);
 
         int expected = 0;
@@ -108,9 +120,9 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterOverMaxStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(11);
 
-        station.setEnter(10);
+        station.setEnter(11);
 
         int expected = 0;
 
@@ -137,9 +149,9 @@ public class RadioTest {
     public void increaseVolume() {
         Radio volume = new Radio();
 
-        volume.setIncreaseVolume(9);
+        volume.setIncreaseVolume(99);
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -149,21 +161,21 @@ public class RadioTest {
     public void increaseVolumeMax() {
         Radio volume = new Radio();
 
-        volume.setIncreaseVolume(10);
+        volume.setIncreaseVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void decreaseVolumeTen() {
+    public void decreaseVolumeMax() {
         Radio volume = new Radio();
 
-        volume.setDecreaseVolume(10);
+        volume.setDecreaseVolume(100);
 
-        int expected = 9;
+        int expected = 99;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
