@@ -1,28 +1,30 @@
 package ru.SmartHouse;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 //@NoArgsConstructor
-@AllArgsConstructor
-@Data
+//@AllArgsConstructor
+//@Data
 
 public class Radio {
 
     private int currentVolume;
 
     private int currentStation;
-    private int maxCountStation;
+    private int maxCountStation = 0;
+
+
+    public Radio(int band) {
+        maxCountStation = maxCountStation + band - 1;
+    }
 
     public Radio() {
         maxCountStation = 9;
     }
 
-    public Radio(int band) {
-        maxCountStation = maxCountStation + band - 1;
-    }
 
 //    public Radio(int currentVolume, int currentStation, int maxCountStation) {
 //        this.currentVolume = currentVolume;
@@ -31,11 +33,11 @@ public class Radio {
 //    }
 
     public int getCurrentVolume() {
-        return this.currentVolume;
+        return currentVolume;
     }
 
     public int getCurrentStation() {
-        return this.currentStation;
+        return currentStation;
     }
 
 //    public int getMaxCountStation() {
