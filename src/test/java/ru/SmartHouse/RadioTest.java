@@ -11,7 +11,9 @@ public class RadioTest {
     public void shouldBigMaxStation() {
         Radio station = new Radio(102);
 
-        station.setNext(100);
+        station.setCurrentStation(100);
+
+        station.next();
 
         Assertions.assertEquals(101, station.getCurrentStation());
 
@@ -21,9 +23,9 @@ public class RadioTest {
 
     @Test
     public void shouldTestNextStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 
-        station.setNext(0);
+        station.next();
 
         int expected = 1;
 
@@ -35,7 +37,9 @@ public class RadioTest {
     public void shouldTestNextStationMax() {
         Radio station = new Radio(15);
 
-        station.setNext(14);
+        station.setCurrentStation(14);
+
+        station.next();
 
         int expected = 0;
 
@@ -46,9 +50,11 @@ public class RadioTest {
 
     @Test
     public void shouldTestPrevStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 
-        station.setPrev(9);
+        station.setCurrentStation(9);
+
+        station.prev();
 
         int expected = 8;
 
@@ -58,9 +64,11 @@ public class RadioTest {
 
     @Test
     public void shouldTestPrevStationMin() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 
-        station.setPrev(0);
+        station.setCurrentStation(0);
+
+        station.prev();
 
         int expected = 9;
 
@@ -71,7 +79,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 
         station.setEnter(5);
 
@@ -83,7 +91,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterMinStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 
         station.setEnter(0);
 
@@ -95,7 +103,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterMaxStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 
         station.setEnter(9);
 
@@ -107,7 +115,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterUnderMinStation() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
 // Радио на котором можно ввести отрицательный номер станции :)
         station.setEnter(-1);
 
@@ -136,7 +144,10 @@ public class RadioTest {
     public void increaseVolumeZero() {
         Radio volume = new Radio();
 
-        volume.setIncreaseVolume(0);
+        volume.setCurrentVolume(0);
+
+
+        volume.increaseVolume();
 
         int expected = 1;
         int actual = volume.getCurrentVolume();
@@ -149,7 +160,9 @@ public class RadioTest {
     public void increaseVolume() {
         Radio volume = new Radio();
 
-        volume.setIncreaseVolume(99);
+        volume.setCurrentVolume(99);
+
+        volume.increaseVolume();
 
         int expected = 100;
         int actual = volume.getCurrentVolume();
@@ -161,7 +174,9 @@ public class RadioTest {
     public void increaseVolumeMax() {
         Radio volume = new Radio();
 
-        volume.setIncreaseVolume(100);
+        volume.setCurrentVolume(100);
+
+        volume.increaseVolume();
 
         int expected = 100;
         int actual = volume.getCurrentVolume();
@@ -173,7 +188,9 @@ public class RadioTest {
     public void decreaseVolumeTen() {
         Radio volume = new Radio();
 
-        volume.setDecreaseVolume(100);
+        volume.setCurrentVolume(100);
+
+        volume.decreaseVolume();
 
         int expected = 99;
         int actual = volume.getCurrentVolume();
@@ -185,7 +202,9 @@ public class RadioTest {
     public void decreaseVolume() {
         Radio volume = new Radio();
 
-        volume.setDecreaseVolume(1);
+        volume.setCurrentVolume(1);
+
+        volume.decreaseVolume();
 
         int expected = 0;
         int actual = volume.getCurrentVolume();
@@ -197,7 +216,9 @@ public class RadioTest {
     public void decreaseVolumeMin() {
         Radio volume = new Radio();
 
-        volume.setDecreaseVolume(0);
+        volume.setCurrentVolume(0);
+
+        volume.decreaseVolume();
 
         int expected = 0;
         int actual = volume.getCurrentVolume();

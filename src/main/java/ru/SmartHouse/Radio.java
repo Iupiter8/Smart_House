@@ -2,33 +2,35 @@ package ru.SmartHouse;
 
 public class Radio {
 
-    private int currentVolume;
-
-    private int currentStation;
-    private int maxCountStation = 0;
-
-
-
-    // STATION *****************************************************************
-
-
-    public Radio(int band) {
-        maxCountStation = maxCountStation + band - 1;
+    private int maxCountStation = 0; //поле приватное
+    public Radio(int newMaxCountStation) {   //конструктор к нему
+        maxCountStation = maxCountStation + newMaxCountStation -1;
     }
 
-    public Radio() {
+    public Radio() {              // еще один конструктор к тому же полю
         maxCountStation = 9;
     }
 
+    private int currentVolume;
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
+    }
 
+    private int currentStation;
+    public void setCurrentStation(int newCurrentStation) {
+        currentStation = newCurrentStation;
+    }
+
+
+    // STATION *****************************************************************
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setNext(int newCurrentStation) {
-        if (newCurrentStation < maxCountStation) {
-            currentStation = newCurrentStation + 1;
+    public void next() {
+        if (currentStation < maxCountStation) {
+            currentStation += 1;
             //return; 'return' не нужен, так как последняя инструкция в методе void
         } else {
             currentStation = 0;
@@ -38,12 +40,12 @@ public class Radio {
 
     }
 
-    public void setPrev(int newCurrentStation) {
-        if (newCurrentStation > 0) {
-            currentStation = newCurrentStation - 1;
+    public void prev() {
+        if (currentStation > 0) {
+            currentStation -= 1;
             //return; 'return' не нужен, так как последняя инструкция в методе void
         } else {
-            currentStation = 9;
+            currentStation = maxCountStation;
 
         }
 
@@ -68,17 +70,17 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setIncreaseVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 100) {
-            currentVolume = newCurrentVolume + 1;
+    public void increaseVolume() {
+        if (currentVolume < 100) {
+            currentVolume += 1;
         } else {
             currentVolume = 100;
         }
     }
 
-    public void setDecreaseVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 0) {
-            currentVolume = newCurrentVolume - 1;
+    public void decreaseVolume() {
+        if (currentVolume > 0) {
+            currentVolume -= 1;
         } else {
             currentVolume = 0;
         }
@@ -86,3 +88,4 @@ public class Radio {
 
 
 }
+
