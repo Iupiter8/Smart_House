@@ -2,9 +2,15 @@ package ru.SmartHouse;
 
 public class Radio {
 
-    public int currentVolume;
+    private int currentVolume;
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
+    }
 
-    public int currentStation;
+    private int currentStation;
+    public void setCurrentStation(int newCurrentStation) {
+        currentStation = newCurrentStation;
+    }
 
 
     // STATION *****************************************************************
@@ -73,3 +79,4 @@ public class Radio {
 
 
 }
+

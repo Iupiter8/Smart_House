@@ -9,7 +9,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestNextStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.next();
 
@@ -21,9 +21,9 @@ public class RadioTest {
 
     @Test
     public void shouldTestNextStationMax() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
-        station.currentStation = 9;
+        station.setCurrentStation(9);
 
         station.next();
 
@@ -36,9 +36,9 @@ public class RadioTest {
 
     @Test
     public void shouldTestPrevStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
-        station.currentStation = 9;
+        station.setCurrentStation(9);
 
         station.prev();
 
@@ -50,7 +50,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestPrevStationMin() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.prev();
 
@@ -63,7 +63,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.setEnter(5);
 
@@ -75,7 +75,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterMinStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.setEnter(0);
 
@@ -87,7 +87,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterMaxStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.setEnter(9);
 
@@ -99,7 +99,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterUnderMinStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.setEnter(-1);
 
@@ -112,7 +112,7 @@ public class RadioTest {
 
     @Test
     public void shouldTestEnterOverMaxStation() {
-        Radio station = new Radio();
+        ru.SmartHouse.Radio station = new ru.SmartHouse.Radio();
 
         station.setEnter(10);
 
@@ -126,7 +126,7 @@ public class RadioTest {
 
     @Test
     public void increaseVolumeZero() {
-        Radio volume = new Radio();
+        ru.SmartHouse.Radio volume = new ru.SmartHouse.Radio();
 
         volume.increaseVolume();
 
@@ -139,9 +139,9 @@ public class RadioTest {
 
     @Test
     public void increaseVolume() {
-        Radio volume = new Radio();
+        ru.SmartHouse.Radio volume = new ru.SmartHouse.Radio();
 
-        volume.currentVolume = 9;
+        volume.setCurrentVolume(9);
 
         volume.increaseVolume();
 
@@ -153,9 +153,9 @@ public class RadioTest {
 
     @Test
     public void increaseVolumeMax() {
-        Radio volume = new Radio();
+        ru.SmartHouse.Radio volume = new ru.SmartHouse.Radio();
 
-        volume.currentVolume = 10;
+        volume.setCurrentVolume(10);
 
         volume.increaseVolume();
 
@@ -167,9 +167,9 @@ public class RadioTest {
 
     @Test
     public void decreaseVolumeTen() {
-        Radio volume = new Radio();
+        ru.SmartHouse.Radio volume = new ru.SmartHouse.Radio();
 
-        volume.currentVolume = 10;
+        volume.setCurrentVolume(10);
 
         volume.decreaseVolume();
 
@@ -181,9 +181,9 @@ public class RadioTest {
 
     @Test
     public void decreaseVolume() {
-        Radio volume = new Radio();
+        ru.SmartHouse.Radio volume = new ru.SmartHouse.Radio();
 
-        volume.currentVolume = 1;
+        volume.setCurrentVolume(1);
 
         volume.decreaseVolume();
 
@@ -195,7 +195,7 @@ public class RadioTest {
 
     @Test
     public void decreaseVolumeMin() {
-        Radio volume = new Radio();
+        ru.SmartHouse.Radio volume = new ru.SmartHouse.Radio();
 
         volume.decreaseVolume();
 
